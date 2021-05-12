@@ -15,7 +15,12 @@ export class AppComponent implements OnInit{
 
   constructor() {
     // @ts-ignore
-    this.socket = io('http://localhost:49160');
+    this.socket = io('http://35.184.215.203/', {
+      withCredentials: true,
+      extraHeaders: {
+        'my-custom-header': 'abcd'
+      }
+    });
   }
 
   public sendLoc(str: any) {
